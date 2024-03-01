@@ -167,9 +167,9 @@ function updateNewsUI(newsItems) {
   newsItems.forEach(news => {
     const date = new Date(news.datetime * 1000);
     const day = date.getDate(); // 获取日期
-    const month = date.toLocaleString('default', { month: 'long' }); // 获取月份名称
+    const month = date.toLocaleString('default', { month: 'long' });
     const year = date.getFullYear(); // 获取年份
-    const formattedDate = `${day} ${month}, ${year}`; // 组装格式化后的日期字符串
+    const formattedDate = `${day} ${month}, ${year}`; 
 
     const newsElement = document.createElement('div');
     newsElement.className = 'news';
@@ -282,8 +282,8 @@ function renderChart() {
               y2: 1
             },
             stops: [
-              [0, Highcharts.getOptions().colors[0]], // 渐变开始颜色
-              [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')] // 渐变结束颜色
+              [0, Highcharts.getOptions().colors[0]], 
+              [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
             ]
           },
       }, {
