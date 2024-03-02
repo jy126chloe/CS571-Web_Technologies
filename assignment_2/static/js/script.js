@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log("DOM fully loaded and parsed");
 
@@ -51,7 +50,6 @@ function searchStock() {
   document.querySelector('#tabs').style.display = 'none'; 
   document.querySelector('#chart').style.display = 'none';
   
-  // Fetch Company Profile
   fetch(`/search?query=${tickerSymbol}`)
     .then(response => response.json())
     .then(data => {
@@ -76,7 +74,6 @@ function searchStock() {
       document.querySelector('#tabs').style.display = 'block';
       openTab('company');
 
-      // Fetch Stock Summary
       return fetch(`/quote?ticker=${tickerSymbol}`);
     })
     .then(response => response.json())
@@ -121,7 +118,6 @@ function searchStock() {
     fetchNews(tickerSymbol);
 }
 
-// Fucntion to fetch Recommendation Data
 function fetchRecommendationTrends(tickerSymbol) {
   fetch(`/recommendation?symbol=${tickerSymbol}`)
     .then(response => response.json())
@@ -137,7 +133,6 @@ function fetchRecommendationTrends(tickerSymbol) {
     });
 }
 
-// Fucntion to fetch News Data
 function fetchNews(symbol) {
   fetch(`/company_news?symbol=${symbol}`)
     .then(response => {
@@ -157,7 +152,6 @@ function fetchNews(symbol) {
     .catch(error => console.error('Error fetching news:', error));
 }
 
-// News Update
 function updateNewsUI(newsItems) {
   console.log(444)
   console.log(newsItems)
@@ -188,7 +182,6 @@ function updateNewsUI(newsItems) {
   console.log(777)
 }
 
-// Tab
 function openTab(tabId) {
   var tabContent = document.getElementById(tabId);
   if (tabContent) {
@@ -206,7 +199,6 @@ function openTab(tabId) {
   }
 }
 
-// Function to Fetch Chart Data
 var PriceData = []
 var VolumeData = []
 function fetchChart(symbol) {
